@@ -1,3 +1,66 @@
-<canvas></canvas>
+<!-- 패딩을 수정하기 위해 헤더와 스타일 추가 -->
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
 
-<script src="index.js"></script>
+<body>
+    <!-- 체력과 격투게임을 묶기 위한 작업 -->
+    <!-- 게임 화면 밖으로 체력바가 나가지 않도록 스타일 추가 -->
+    <div style="position: relative; display: inline-block;">
+
+        <!-- 가로로 나열하기, 전체적으로 늘리기, 수평으로 맞추기 -->
+        <!-- 벽하고 거리두기 -->
+        <div style="position: absolute; display: flex; width: 100%; align-items: center; padding: 20px;">
+
+            <!-- 1p 체력 -->
+            <!-- 왼쪽에서 오른쪽으로 감소하기 위해 스타일 추가 -->
+            <div style="position: relative; height: 30px; width: 100%; display: flex; justify-content: flex-end;">
+                <div style="background-color: yellow; height: 30px; width: 100%;"></div>
+                <div id="playerHealth" style="position: absolute; background-color: blue; top: 0; right: 0; bottom: 0; width: 100%;"></div>
+            </div>
+
+            <!-- 타이머 -->
+            <!-- 체력에 width: 100%으로 인해 사이즈가 작아짐. 다시 늘려야 함 -->
+            <!-- 타이머 가운데 정렬 -->
+            <div id="timer" 
+                style="
+                background-color: red;
+                height: 100px; width: 100px;
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            ">
+                10
+            </div>
+
+            <!-- 2p 체력 -->
+            <div style="position: relative; height: 30px; width: 100%;">
+                <div style="background-color: yellow; height: 30px;"></div>
+                <div id="enemyHealth" style="position: absolute; background-color: blue; top: 0; right: 0; left: 0; bottom: 0;"></div>
+            </div>
+            
+        </div>
+        <!-- 승패 표시 -->
+        <div id="displayText" 
+            style="
+                position: absolute;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0; right: 0; left: 0; bottom: 0;
+            ">
+                <!-- 무승부 -->
+        </div>
+        <canvas></canvas>
+    </div>
+
+    <script src="./js/classes.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
